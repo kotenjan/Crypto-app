@@ -1,0 +1,16 @@
+{
+	"name": "Crypto App",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "playground",
+	"workspaceFolder": "/workspace",
+
+	"settings": { 
+		"python.defaultInterpreterPath": "/usr/local/bin/python"
+	},
+
+	"extensions": [
+		"ms-python.python",
+		"aaron-bond.better-comments"
+	],
+
+}

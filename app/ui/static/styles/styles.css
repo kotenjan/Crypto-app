@@ -1,0 +1,32 @@
+td {
+    font-size: 18px;
+    vertical-align: center;
+}
+.wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+.base {
+    background-color: rgb(231, 231, 231);
+}
+.back {
+    background-color: rgb(41, 41, 41);
+}
+.element {
+    padding-top: 0px;
+    padding-bottom: 25px;
+}
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #04AA6D;
+    font-size: 42px;
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+    padding: 20px;
+}
+
+.tablelabel {
+    width:200px;
+    max-width:200px; 
+}

@@ -1,0 +1,100 @@
+version: '3'
+
+services:
+
+  backup:
+    build:
+      context: ..
+      dockerfile: .devcontainer/backup/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: backup
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  scrape:
+    build:
+      context: ..
+      dockerfile: .devcontainer/scrape/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: scrape
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  trend:
+    build:
+      context: ..
+      dockerfile: .devcontainer/trend/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: trend
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  predictor:
+    build:
+      context: ..
+      dockerfile: .devcontainer/predictor/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: predictor
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  server:
+    build:
+      context: ..
+      dockerfile: .devcontainer/server/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: server
+    ports:
+      - '5000:5000'
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  playground:
+    build:
+      context: ..
+      dockerfile: .devcontainer/playground/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    container_name: playground
+    command: sleep infinity
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  database:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    container_name: database
+    env_file:
+      - .env
+
+volumes:
+  postgres-data: null

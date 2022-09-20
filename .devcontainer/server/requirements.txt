@@ -1,0 +1,8 @@
+pandas
+numpy
+psycopg2
+scipy
+scikit-learn
+Flask
+Flask_cors
+requests

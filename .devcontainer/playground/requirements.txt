@@ -1,0 +1,12 @@
+ipykernel
+pandas
+numpy
+psycopg2
+requests
+selenium
+tensorflow
+matplotlib
+seaborn
+scipy 
+scikit-learn
+statsmodels
